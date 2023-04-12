@@ -8,6 +8,7 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/resultCard"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_margin="15dp"
@@ -60,7 +61,7 @@
                 android:textSize="20dp"
                 android:padding="2dp"
                 android:textColor="#e30b5c"
-                android:text="Payable"
+                android:text="Payable Rs.200000"
                 android:gravity="center"
                 android:background="@drawable/payable_circle"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -74,18 +75,162 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/calculate"
-        android:layout_width="268dp"
-        android:layout_height="61dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/custom_button_calculate"
-        android:gravity="center"
-        android:text="Calculate"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        app:layout_constraintTop_toBottomOf="@+id/resultCard"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="5dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:background="@null"
+                android:text="Gold:"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.179" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/goldAmount"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:hint="Gold in gms"
+                android:textSize="16dp"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/appCompatTextView"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/rsPerGms"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:hint="Rs. per gm"
+                app:layout_constraintStart_toEndOf="@+id/goldAmount"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/clear_button"
+                android:text="C"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@+id/rsPerGms"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/Silver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@null"
+                android:text="Silver:"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/appCompatTextView"
+                app:layout_constraintTop_toBottomOf="@+id/goldAmount" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/silverAmount"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:hint="Silver in gms"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/Silver"
+                app:layout_constraintTop_toBottomOf="@+id/Silver" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/silverRsPerGms"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:hint="Rs. per gm"
+                app:layout_constraintStart_toEndOf="@+id/silverAmount"
+                app:layout_constraintTop_toBottomOf="@+id/Silver" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/silverClear"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/clear_button"
+                android:text="C"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@+id/silverRsPerGms"
+                app:layout_constraintTop_toBottomOf="@+id/Silver" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/Money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@null"
+                android:text="Money:"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/Silver"
+                app:layout_constraintTop_toBottomOf="@+id/silverAmount" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/moneyAmount"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:hint="Money in Rs."
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/Money"
+                app:layout_constraintTop_toBottomOf="@+id/Money" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculate"
+                android:layout_width="268dp"
+                android:layout_height="61dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/custom_button_calculate"
+                android:gravity="center"
+                android:text="Calculate"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
