@@ -2,6 +2,7 @@ package com.usmanEjaz.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     TextView payable, total, goldResult, silverResult, moneyResult, payableRing;
     Button clearGold, clearSilver, clearMoney, calculate;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 //Calculating Total amount to be paid //
                 int total_zakat = moneyValue + goldValue + silverValue;
                 payable.setText("Zakat Rs."+String.valueOf(total_zakat));
+                payableRing.setVisibility(View.VISIBLE);
 
                 //Calculating Total amount user has //
                 int user_total = (int)(money + (gold*goldPg) + (silver*silverPg));
@@ -92,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
                 goldAmount.setText("0");
                 goldPg.setText("0");
                 goldResult.setText("Gold Rs.0");
+                payableRing.setVisibility(View.GONE);
+                payable.setText("Zakat Rs.-");
+                total.setText("Rs.-");
             }
         });
 
@@ -103,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
                 silverAmount.setText("0");
                 silverPg.setText("0");
                 silverResult.setText("Silver Rs.0");
+                payableRing.setVisibility(View.GONE);
+                payable.setText("Zakat Rs.-");
+                total.setText("Rs.-");
             }
         });
 
@@ -112,6 +121,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 moneyAmount.setText("0");
                 moneyResult.setText("Money Rs.0");
+                payableRing.setVisibility(View.GONE);
+                payable.setText("Zakat Rs.-");
+                total.setText("Rs.-");
             }
         });
 
