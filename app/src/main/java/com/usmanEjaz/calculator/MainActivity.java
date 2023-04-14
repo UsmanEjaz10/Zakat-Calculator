@@ -45,19 +45,24 @@ public class MainActivity extends AppCompatActivity {
 
                 //Getting text from Gold values //
                 String a = goldAmount.getText().toString();
+                if(a.equals("")){a="0.0";}
                 double gold = Double.parseDouble(a);
                 String gpg = goldPg.getText().toString();
+                if(gpg.equals("")){gpg = "0.0";}
                 double goldPg = Double.parseDouble(gpg);
 
                 //Getting text from silver values //
                 String b = goldAmount.getText().toString();
+                if(b.equals("")){b = "0.0";}
                 double silver = Double.parseDouble(b);
                 String spg = silverPg.getText().toString();
+                if(spg.equals("")){spg = "0.0";}
                 double silverPg = Double.parseDouble(spg);
 
 
                 //Getting text from Money values //
                 String c = moneyAmount.getText().toString();
+                if(c.equals("")){c = "0.0";}
                 double money = Double.parseDouble(c);
 
                 //Calculating payable amount for gold //
