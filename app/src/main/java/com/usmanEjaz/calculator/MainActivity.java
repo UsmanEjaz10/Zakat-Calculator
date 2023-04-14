@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     EditText goldAmount, silverAmount, moneyAmount, goldPg, silverPg;
-    TextView payable, total, goldResult, silverResult, moneyResult, payableRing;
+    TextView payable, total, goldResult, silverResult, moneyResult, payableRing, reset;
     Button clearGold, clearSilver, clearMoney, calculate;
 
     @SuppressLint("MissingInflatedId")
@@ -29,14 +29,15 @@ public class MainActivity extends AppCompatActivity {
         silverPg = findViewById(R.id.silverPg);
         payable = findViewById(R.id.payable);
         total = findViewById(R.id.total);
-        goldResult = findViewById(R.id.goldResult);
-        silverResult = findViewById(R.id.silverResult);
-        moneyResult = findViewById(R.id.moneyResult);
+      //  goldResult = findViewById(R.id.goldResult);
+      //  silverResult = findViewById(R.id.silverResult);
+      //  moneyResult = findViewById(R.id.moneyResult);
         clearGold = findViewById(R.id.goldClear);
         clearSilver = findViewById(R.id.silverClear);
         clearMoney = findViewById(R.id.moneyClear);
         calculate = findViewById(R.id.calculate);
         payableRing = findViewById(R.id.payableRing);
+        reset = findViewById(R.id.reset);
 
         calculate.setOnClickListener(new View.OnClickListener() {
 
@@ -68,17 +69,17 @@ public class MainActivity extends AppCompatActivity {
                 //Calculating payable amount for gold //
                 int goldValue = calculateZakatAmount(gold, goldPg);
                 String finalGold = String.valueOf(goldValue);
-                goldResult.setText("Gold Rs."+finalGold);
+            //    goldResult.setText("Gold Rs."+finalGold);
 
                 //Calculating payable amount for silver //
                 int silverValue = calculateZakatAmount(silver, silverPg);
                 String finalSilver = String.valueOf(silverValue);
-                silverResult.setText("Silver Rs."+finalSilver);
+            //    silverResult.setText("Silver Rs."+finalSilver);
 
                 //Calculating payable amount for money //
                 int moneyValue  = (int)(money*2.5)/100;
                 String finalMoney = String.valueOf(moneyValue);
-                moneyResult.setText("Money Rs."+finalMoney);
+            //    moneyResult.setText("Money Rs."+finalMoney);
 
                 //Calculating Total amount to be paid //
                 int total_zakat = moneyValue + goldValue + silverValue;
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 int user_total = (int)(money + (gold*goldPg) + (silver*silverPg));
                 total.setText("Rs."+String.valueOf(user_total));
 
-
+                reset.setText("Result Generated");
             }
         });
 
@@ -99,10 +100,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 goldAmount.setText("0");
                 goldPg.setText("0");
-                goldResult.setText("Gold Rs.0");
+            //    goldResult.setText("Gold Rs.0");
                 payableRing.setVisibility(View.GONE);
                 payable.setText("Zakat Rs.-");
                 total.setText("Rs.-");
+                reset.setText("Calculate Zakat Value");
             }
         });
 
@@ -113,10 +115,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 silverAmount.setText("0");
                 silverPg.setText("0");
-                silverResult.setText("Silver Rs.0");
+            //    silverResult.setText("Silver Rs.0");
                 payableRing.setVisibility(View.GONE);
                 payable.setText("Zakat Rs.-");
                 total.setText("Rs.-");
+
+                reset.setText("Calculate Zakat Value");
             }
         });
 
@@ -125,10 +129,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 moneyAmount.setText("0");
-                moneyResult.setText("Money Rs.0");
+            //    moneyResult.setText("Money Rs.0");
                 payableRing.setVisibility(View.GONE);
                 payable.setText("Zakat Rs.-");
                 total.setText("Rs.-");
+                reset.setText("Calculate Zakat Value");
             }
         });
 
